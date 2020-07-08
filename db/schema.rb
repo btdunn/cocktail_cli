@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_07_213533) do
+ActiveRecord::Schema.define(version: 2020_07_08_155741) do
 
   create_table "bottles", force: :cascade do |t|
     t.string "liquor_type"
@@ -22,7 +22,6 @@ ActiveRecord::Schema.define(version: 2020_07_07_213533) do
     t.string "baseSpirit"
     t.string "time"
     t.string "weather"
-    t.string "bottle"
     t.string "ingredients"
   end
 

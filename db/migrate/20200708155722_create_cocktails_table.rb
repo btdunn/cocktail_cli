@@ -6,10 +6,6 @@ class CreateCocktailsTable < ActiveRecord::Migration[6.0]
       t.string :time
       t.string :weather
       t.string :ingredients
-      t.references :bottle
     end
   end
 end
-
-
-
