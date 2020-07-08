@@ -10,9 +10,9 @@ class Cocktail < ActiveRecord::Base
     time = gets.strip
     puts "Tell me about the weather!"
     weather = gets.strip
-    puts cocktail_pick = Cocktail.where(baseSpirit: baseSpirit.downcase, time: time.downcase, weather: weather.downcase)
+    cocktail_pick = Cocktail.find_by(baseSpirit: baseSpirit.downcase, time: time.downcase, weather: weather.downcase)
+    puts cocktail_pick.name
+    # binding.pry
   end
-
-
 
 end
