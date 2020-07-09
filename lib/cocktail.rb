@@ -3,6 +3,7 @@ class Cocktail < ActiveRecord::Base
   has_many :users
 
   def self.drink_quiz
+    binding.pry
     prompt = TTY::Prompt.new
     puts "Time to pick a drink!"
     sleep(1.5)
