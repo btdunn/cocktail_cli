@@ -5,5 +5,6 @@ app = Cli.new
 
 app.main_menu
 
-Cocktail.drink_quiz
+# puts Cocktail.get_cocktail_id("Cool Drink")
+
 

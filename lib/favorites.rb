@@ -7,8 +7,14 @@ class Favorite < ActiveRecord::Base
     if new_fav.nil?
       Favorite.create(cocktail_id: cocktail_id, user_id: user_id)
       puts "Saved to your favorites!"
-      sleep(1)
+      sleep(2.5)
       system "clear"
+    else
+      system "clear"
+      puts "You already favorited this one! How many have you had?"
+      sleep(2.5)
+      system "clear"
+    end
   end
 
 
