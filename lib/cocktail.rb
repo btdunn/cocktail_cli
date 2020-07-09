@@ -21,8 +21,7 @@ class Cocktail < ActiveRecord::Base
     fav_response = gets.strip
     if fav_response.downcase == "yes"
       cocktail_id = Cocktail.get_cocktail_id(cocktail_pick.name)
-      binding.pry
-      user_id = User.get_user_id(@user)
+      user_id = User.get_user_id(username)
       Favorite.favorite_it(cocktail_id, user_id)
     else fav_response.downcase == "no"
       puts "Ok!"
