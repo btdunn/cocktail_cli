@@ -9,6 +9,7 @@ class Favorite < ActiveRecord::Base
       puts "Saved to your favorites!"
       sleep(1)
       system "clear"
+    end
   end
 
 
