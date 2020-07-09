@@ -12,9 +12,7 @@ class Cli
     puts "Enter Island Username"
     username = gets.strip
     system "clear"
-    binding.pry
     @user = User.find_by(username: username)
-    binding.pry
     if @user
         puts "Welcome back #{@user.username}"
     else
