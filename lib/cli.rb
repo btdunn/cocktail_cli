@@ -5,7 +5,7 @@ class Cli
     sleep(2)
     puts "Enter Island Username"
     username = gets.strip
-
+    system "clear"
     @user = User.find_by(username: username)
 
     if @user

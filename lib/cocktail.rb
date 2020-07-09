@@ -7,13 +7,12 @@ class Cocktail < ActiveRecord::Base
     puts "Time to pick a drink!"
     sleep(1.5)
     baseSpirit = prompt.select("pick your poison!", %w[whiskey gin rum])
-    
+    system "clear"
     time = prompt.select("What time of day is it?", %w[day afternoon night])
-    
+    system "clear"
     weather = prompt.select("Tell me about the weather?", %w[rainy cloudy cold hot sunny])
-    
+    system "clear"
     cocktail_pick = Cocktail.find_by(baseSpirit: baseSpirit.downcase, time: time.downcase, weather: weather.downcase)
-    binding.pry
     puts "You might like a #{cocktail_pick.name}!" 
     sleep(1)
     puts "You need #{cocktail_pick.baseSpirit} and #{cocktail_pick.ingredients}"
@@ -22,6 +21,7 @@ class Cocktail < ActiveRecord::Base
     fav_response = gets.strip
     if fav_response.downcase == "yes"
       cocktail_id = Cocktail.get_cocktail_id(cocktail_pick.name)
+      binding.pry
       user_id = User.get_user_id(@user)
       Favorite.favorite_it(cocktail_id, user_id)
     else fav_response.downcase == "no"
