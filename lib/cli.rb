@@ -11,9 +11,11 @@ class Cli
     if @user
         puts "Welcome back #{@user.username}"
     else
-      User.create(username: username)
+      @user = User.create(username: username)
       puts "Welcome to UDP #{username}"
     end
+    Cocktail.drink_quiz
   end
+
 
 end
