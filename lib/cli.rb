@@ -6,8 +6,8 @@ class Cli
     @user = user
   end
 
-  def main_menu
-    puts "Welcome to Untitled Drink Project"
+  def login
+    puts "Welcome to Thirsty Island"
     sleep(2)
     puts "Enter Island Username"
     username = gets.strip
@@ -15,16 +15,16 @@ class Cli
     @user = User.find_by(username: username)
     if @user
         puts "Welcome back #{@user.username}"
-    
     else
       @user = User.create(username: username)
-      puts "Welcome to UDP #{username}"
+      puts "Welcome to Thirsty Island #{username}"
     end
+  end
 
+  def main_menu
     prompt = TTY::Prompt.new 
     menu_options = ["drink quiz", "see favorites"]
     menu_selection = prompt.select("menu", menu_options)
-    binding.pry
     case menu_selection
     when "drink quiz"
       drink_quiz
@@ -59,17 +59,8 @@ class Cli
         puts "Ok!"
         sleep(1)
       system "clear"
+      main_menu
     end
-  end
-
-  def get_user_favs
-    user_favs = []
-    favs = Favorite.where(id: @user.id)
-    favs.each do |fav|
-      puts fav.cocktail.name
-      user_favs << fav.cocktail.name
-    end
-    user_favs
   end
 
   def get_user_favs
@@ -80,7 +71,17 @@ class Cli
       user_favs << fav.cocktail.name
     end
     user_favs
+    prompt = TTY::Prompt.new
+    options = ["cool!", "lemme delete one"]
+    response = prompt.select("These are your favorites!", options)
+    case response
+    when "cool!"
+      main_menu
+    when "lemme delete one"
+      puts "Which one?"
+      this_one = gets.strip
+      found_fav = Cocktail.find_by(name: this_one).id
+      Favorite.find_by(cocktail_id: found_fav, user_id: @user.id).destroy
+    end
   end
-
-
 end
