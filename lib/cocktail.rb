@@ -20,7 +20,12 @@ class Cocktail < ActiveRecord::Base
     fav_response = gets.strip
     if fav_response.downcase == "yes"
       cocktail_id = Cocktail.get_cocktail_id(cocktail_pick.name)
-      user_id = User.get_user_id(username)
+      user_id = User.get_user_id(@user)
+      Favorite.favorite_it(cocktail_id, user_id)
+    else fav_response.downcase == "no"
+      puts "Ok!"
+      sleep(1)
+      system "clear"
     end
 
   end
@@ -33,7 +38,7 @@ class Cocktail < ActiveRecord::Base
   end
 
   def self.get_cocktail_id(cocktail)
-    puts Cocktail.find_by(name: cocktail).id
+    Cocktail.find_by(name: cocktail).id
   end
 
 end
