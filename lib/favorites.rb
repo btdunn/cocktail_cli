@@ -18,7 +18,15 @@ class Favorite < ActiveRecord::Base
     end
   end
 
-  def self.get_favorites
-    puts @user.favorites.all
+  def self.get_user_favs(name)
+    user_favs = []
+    id = User.get_user_id(name)
+    favs = Favorite.where(user_id: id)
+    favs.each do |fav|
+      puts fav.cocktail.name
+      user_favs << fav.cocktail.name
+    end
+    user_favs
   end
+
 end

@@ -29,9 +29,9 @@ class Cli
     sleep(1.5)
     baseSpirit = prompt.select("pick your poison!", %w[whiskey gin rum])
     system "clear"
-    time = prompt.select("What time of day is it?", %w[day afternoon night])
+    time = prompt.select("What time of day is it?", %w[morning afternoon night])
     system "clear"
-    weather = prompt.select("Tell me about the weather?", %w[rainy cloudy cold hot sunny])
+    weather = prompt.select("Tell me about the weather?", %w[rainy cloudy cold hot])
     system "clear"
     cocktail_pick = Cocktail.find_by(baseSpirit: baseSpirit.downcase, time: time.downcase, weather: weather.downcase)
     puts "You might like a #{cocktail_pick.name}!" 
@@ -49,8 +49,18 @@ class Cli
         sleep(1)
       system "clear"
     end
-
   end
+
+  def get_user_favs
+    user_favs = []
+    favs = Favorite.where(id: @user.id)
+    favs.each do |fav|
+      puts fav.cocktail.name
+      user_favs << fav.cocktail.name
+    end
+    user_favs
+  end
+
 
 
 end
