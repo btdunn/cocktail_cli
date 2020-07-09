@@ -1,7 +1,7 @@
 class Cocktail < ActiveRecord::Base
   belongs_to :bottle
   has_many :users
-
+  
   def self.details(cocktail)
     cocktail_pick = Cocktail.find_by(name: cocktail)
     puts "Name: " + cocktail_pick.name
@@ -12,5 +12,4 @@ class Cocktail < ActiveRecord::Base
   def self.get_cocktail_id(cocktail)
     Cocktail.find_by(name: cocktail).id
   end
-
 end
