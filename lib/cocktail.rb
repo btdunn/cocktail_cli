@@ -15,6 +15,14 @@ class Cocktail < ActiveRecord::Base
     puts "You might like a #{cocktail_pick.name}!"
     sleep(1)
     puts "You need #{cocktail_pick.baseSpirit} and #{cocktail_pick.ingredients}"
+    sleep(2)
+    puts "What do you think? Add to favorites?(yes/no)"
+    fav_response = gets.strip
+    if fav_response.downcase == "yes"
+      cocktail_id = Cocktail.get_cocktail_id(cocktail_pick.name)
+      user_id = User.get_user_id(username)
+    end
+
   end
 
   def self.details(cocktail)
