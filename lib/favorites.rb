@@ -18,6 +18,7 @@ class Favorite < ActiveRecord::Base
     end
   end
 
-
-
+  def self.get_favorites
+    puts @user.favorites.all
+  end
 end
