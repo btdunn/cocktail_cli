@@ -3,16 +3,18 @@ class Cocktail < ActiveRecord::Base
   has_many :users
 
   def self.drink_quiz
+    prompt = TTY::Prompt.new
     puts "Time to pick a drink!"
-    sleep(1)
-    puts "Pick your poison!"
-    baseSpirit = gets.strip
-    puts "What time of day is it?"
-    time = gets.strip
-    puts "Tell me about the weather!"
-    weather = gets.strip
+    sleep(1.5)
+    baseSpirit = prompt.select("pick your poison!", %w[whiskey gin rum])
+    
+    time = prompt.select("What time of day is it?", %w[day afternoon night])
+    
+    weather = prompt.select("Tell me about the weather?", %w[rainy cloudy cold hot sunny])
+    
     cocktail_pick = Cocktail.find_by(baseSpirit: baseSpirit.downcase, time: time.downcase, weather: weather.downcase)
-    puts "You might like a #{cocktail_pick.name}!"
+    binding.pry
+    puts "You might like a #{cocktail_pick.name}!" 
     sleep(1)
     puts "You need #{cocktail_pick.baseSpirit} and #{cocktail_pick.ingredients}"
     sleep(2)

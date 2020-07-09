@@ -14,6 +14,7 @@ class Favorite < ActiveRecord::Base
       puts "You already favorited this one! How many have you had?"
       sleep(2.5)
       system "clear"
+
     end
   end
 
