@@ -5,7 +5,7 @@ Thirsty? Meet your new favorite drinking buddy, Thirsty Island!
 Thirsty Island is a CLI application that connects users like you with their next favorite cocktail! Maybe it's storming in the mid afternoon and the rains getting you down; Tell Thirsty Island's drink quiz your woes and get a curated cocktail pick! Don't worry about that day drink clouding your memory either! Thirsty Island lets you save your favorites, so you can revisit to get the hair of the dog for that hangover, or if you'd rather, delete the offending drink! Maybe you're more of a private type? Use Thirsty Island's drink search to find what you're looking for-no questions asked!
 
 ## Video Tour
-WIP
+[Link Here](https://www.youtube.com/watch?v=YedMHOCTfJ0&feature=youtu.be)
 
 ## Under the Hood
 - Ruby ver 2.7
