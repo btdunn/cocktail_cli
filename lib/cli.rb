@@ -23,7 +23,7 @@ class Cli
 
   def main_menu
     prompt = TTY::Prompt.new 
-    menu_options = ["drink quiz", "see favorites"]
+    menu_options = ["drink quiz", "see favorites", "drink search", "exit"]
     menu_selection = prompt.select("menu", menu_options)
     case menu_selection
     when "drink quiz"
@@ -31,9 +31,26 @@ class Cli
     
     when "see favorites" 
       get_user_favs
+    when "drink search"
+      drink_search
+    when "exit"
+      system "exit"
     end
-  end
+end
 
+  def drink_search
+    prompt = TTY::Prompt.new 
+    choice = ["yes", "no"]
+    menu_search = prompt.select("Would you like to search for a drink?", choice)
+    case menu_search
+    when "yes"
+      puts "Which drink are you looking for?"
+      response = gets.strip 
+      Cocktail.details(response)
+    else 
+      main_menu 
+    end  
+  end
 
   def drink_quiz
     prompt = TTY::Prompt.new
