@@ -67,12 +67,17 @@ end
     sleep(1)
     puts "You need #{cocktail_pick.baseSpirit} and #{cocktail_pick.ingredients}"
     sleep(2)
-    fav_response = prompt.yes?('"What do you think? Add to favorites?')
-      if fav_response == "yes"
+    # fav_response = prompt.yes?('"What do you think? Add to favorites?')
+    options = ["yeah!", "no"]
+    fav_response = prompt.select("What do you think? Add to favorites?", options)
+      case fav_response
+      when "yeah!"
         cocktail_id = Cocktail.get_cocktail_id(cocktail_pick.name)
         user_id = @user.id
         Favorite.favorite_it(cocktail_id, user_id)
-      else
+        sleep(1)
+        main_menu
+      when "no"
         puts "Ok!"
         sleep(1)
       system "clear"
@@ -87,7 +92,7 @@ end
       puts fav.cocktail.name
       user_favs << fav.cocktail.name
     end
-    user_favs
+    puts user_favs
     prompt = TTY::Prompt.new
     options = ["cool!", "lemme delete one"]
     response = prompt.select("These are your favorites!", options)
