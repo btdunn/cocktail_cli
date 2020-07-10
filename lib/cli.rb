@@ -90,7 +90,6 @@ end
     user_favs = []
     favs = @user.favorites
     favs.each do |fav|
-      puts fav.cocktail.name
       user_favs << fav.cocktail.name
     end
     puts user_favs
