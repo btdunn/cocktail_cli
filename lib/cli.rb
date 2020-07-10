@@ -6,7 +6,7 @@ class Cli
     @user = user
   end
 
-  def main_menu
+  def login
     puts "Welcome to Untitled Drink Project"
     sleep(2)
     puts "Enter Island Username"
@@ -19,21 +19,38 @@ class Cli
     else
       @user = User.create(username: username)
       puts "Welcome to UDP #{username}"
+      end
     end
-
+def main_menu 
     prompt = TTY::Prompt.new 
-    menu_options = ["drink quiz", "see favorites"]
+    menu_options = ["drink quiz", "see favorites", "drink search", "exit"]
     menu_selection = prompt.select("menu", menu_options)
-    binding.pry
     case menu_selection
     when "drink quiz"
       drink_quiz
     
     when "see favorites" 
       get_user_favs
+    when "drink search"
+      drink_search
+    when "exit"
+      system "exit"
     end
-  end
+end
 
+  def drink_search
+    prompt = TTY::Prompt.new 
+    choice = ["yes", "no"]
+    menu_search = prompt.select("Would you like to search for a drink?", choice)
+    case menu_search
+    when "yes"
+      puts "Which drink are you looking for?"
+      response = gets.strip 
+      Cocktail.details(response)
+    else 
+      main_menu 
+    end  
+  end
 
   def drink_quiz
     prompt = TTY::Prompt.new
