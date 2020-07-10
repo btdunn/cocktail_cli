@@ -1,10 +1,12 @@
 require_relative 'config/environment'
 
 
+
 app = Cli.new
 
-app.main_menu
+app.login
 
+app.main_menu
 
 
 

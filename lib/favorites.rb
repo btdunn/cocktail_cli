@@ -17,7 +17,7 @@ class Favorite < ActiveRecord::Base
 
     end
   end
-  
+
   def self.get_user_favs(name)
     user_favs = []
     id = User.get_user_id(name)
@@ -28,4 +28,5 @@ class Favorite < ActiveRecord::Base
     end
     user_favs
   end
+
 end
