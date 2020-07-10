@@ -1,71 +1,40 @@
-# Mod 1 ActiveRecord Starter Repo
+# THIRSTY ISLAND
+Thirsty? Meet your new favorite drinking buddy, Thirsty Island!
 
-In `config/database.yml`, you can change the name of the database from `db/cats.sqlite3` to whatever reflects your project. For example: `db/notes.sqlite3`. Doesn't really matter what you call the db. 
+## About
+Thirsty Island is a CLI application that connects users like you with their next favorite cocktail! Maybe it's storming in the mid afternoon and the rains getting you down; Tell Thirsty Island's drink quiz your woes and get a curated cocktail pick! Don't worry about that day drink clouding your memory either! Thirsty Island lets you save your favorites, so you can revisit to get the hair of the dog for that hangover, or if you'd rather, delete the offending drink! Maybe you're more of a private type? Use Thirsty Island's drink search to find what you're looking for-no questions asked!
 
+## Video Tour
+WIP
 
+## Under the Hood
+-Ruby ver 2.7
+-ActiveRecord ver 6.0 3.2
+-SQLite3 ver 1.4
+-Sinatra ver 2.0
+-Sinatra ActiveRecord ver 2.0
 
-## ActiveRecord Methods
-These common ActiveRecord methods will help you interact with your database. Please refer to the ActiveRecord
-docs for what they do and how to use them. (If the docs talk about Rails, that is ok! ActiveRecord works very
- similar with or without Rails.)
-```
-  .create (.new, .save)
-  .all
-  .count
-  .find
-  .find_by
-  .where
-```
+## Install
+To check out Thirsty Island, install locally by cloning the GitHub repository and run
+`ruby runner.rb`
 
-#### Notes
+## Code Highlights
 
-*Remember*, any model that will have a corresponding table in the database needs to inherit from `ActiveRecord::Base`
-ex:
-```
-class Cat < ActiveRecord::Base
-  # customer methods defined here
-end
-```
+## Features
+-Browse the cocktail database by drink attributes with the drink quiz
+-Browse the cocktail database directly by cocktail name
+-See drink details, including ingredients and suggested time of day/weather
+-Save your favorite cocktails
+-See your favorites list
+-Delete cocktails from your favorites list
 
-- To view database, you can run `sqlite3 db/cats.db`, then can run `.schema` or `.tables` and can run any SQL commands. (Don't need to do this anymore though! ActiveRecord gives us a schema file!)
+# To Do
+-Increase search flexibility to allow search by multiple criterion
+-Impliment a bottle attribute on each cocktail, with a suggested spirit label
+-Allow search by bottle
 
+## Status
+Project is complete, with room for expansion and increased flexibility
 
-### Steps to setup Ruby app with activerecord
-(New for ActiveRecord 6.0)
-
-
-## The following steps are already done for you in this boiler plate repo. 
-## The steps below are provided to you as a reference only. 
-## You're not expected to memorize this (please don't).
-
-
-1. In root of project, run `bundle init`
-1. Add gems: 
-  `bundle add activerecord pry sinatra, sinatra-activerecord rake sqlite3 require_all`
-  run `bundle install`
-1. mkdir config and lib 
-1. mkdir lib/models
-1. touch config/environment.rb config/database.yml
-1. Create your model files and models (make sure to have your models inherit from ActiveRecord::Base)
-1. In config/environment.rb:
-```
-  require 'bundler/setup'
-  Bundler.require
-
-  require_all 'lib'
-```
-1. In config/database.yml:
-  ```
-  development:
-    adapter: sqlite3
-    database: db/cats.sqlite3
-  ```
-1. Touch Rakefile - require ‘config/environment.rb’ and require_relative ‘sinatra/activerecord/rake’ 
-1. Run rake -T to make sure we have access to raketasks
-1. Run `rake db:create_migration NAME=create_cats_table` (will create the db folder if it doesn’t already exist) and will add the migration file to db/migration
-1. Write migration file, then run `rake db:migrate`
-1. Then can see schema in file structure, can also drop into sqlite3 cats.db to see the tables and schema, but don’t really need to do that anymore. *Review rollback here*
-1. Create seeds in db/seeds.rb and run `rake db:seed`
-1. Now can put a pry in environment.rb to run <ModelName>.all and see your seeds.
-
-Make sure your models inherit from `ActiveRecord::Base`# cocktail_cli
+## Contact
+Created by [Ben Dunn](https://github.com/btdunn) and [Bradley Calkins](https://github.com/bmcalkins)
