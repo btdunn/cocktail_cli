@@ -104,8 +104,8 @@ end
       this_one = gets.strip
       found_fav = Cocktail.find_by(name: this_one).id
       Favorite.find_by(cocktail_id: found_fav, user_id: @user.id).destroy
-      system "clear"
-      main_menu
+      # system "clear"
+      # main_menu
     end
   end
 end
